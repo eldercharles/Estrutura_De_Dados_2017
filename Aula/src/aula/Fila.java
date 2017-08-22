@@ -38,9 +38,28 @@ public class Fila{
 	}
 	
 	public void insereInicio(int info){
+            
+            
+             if(cabeca == null) {
+               cabeca    = new tipoNo();
+               cabeca.setInfo(info);
+               cabeca.setProx(null);
+            }
+            
+            else {
+               tipoNo novo;
+               novo = new tipoNo();
+               novo.setInfo(info);
+               novo.setProx(cabeca);
+               cabeca = novo;
 	}
+        }     
+             
 	public void removeFinal(){
+                          
+                   
 	}
+        
 	
 	public void imprime(){
 		tipoNo aux=cabeca;
