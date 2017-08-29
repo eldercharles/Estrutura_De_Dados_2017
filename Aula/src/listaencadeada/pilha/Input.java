@@ -1,11 +1,4 @@
-
-package listaencadeada.pilha;
-
-
-
 import java.io.*;
-
-
 
 public class Input {
     private static BufferedReader inReader = new BufferedReader(new InputStreamReader(System.in));

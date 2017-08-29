@@ -1,22 +1,19 @@
-package listaencadeada.pilha;
-
-
-public class tipoNo {
-   	public int elemento;
+public class tipoNo{
+	public int info;
 	public tipoNo prox;
 	
 	public tipoNo(){}
 	
-	public void setelemento(int elemento){
-		this.elemento=elemento;
+	public void setInfo(int info){
+		this.info=info;
 	}
 
 	public void setProx(tipoNo prox){
 		this.prox=prox;
 	}
 	
-	public int getelemento(){
-		return elemento;
+	public int getInfo(){
+		return info;
 	}
 	public tipoNo getProx(){
 		return prox;
