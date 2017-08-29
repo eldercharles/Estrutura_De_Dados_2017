@@ -1,7 +1,9 @@
-public class Fila{
+package listaencadeada.fila;
+
+public class fila{
 	
 	public tipoNo cabeca;
-	Fila(){
+	fila(){
 		System.out.println("Criando fila...(construtor fila)");
 	}
 		
@@ -28,6 +30,21 @@ public class Fila{
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
 	
+	public void insereInicio(int info){
+		if(cabeca == null){
+			cabeca      = new tipoNo();
+			cabeca.setInfo(info);
+			cabeca.setProx(null);
+		}
+		else{
+			tipoNo novo;
+			novo = new tipoNo();
+			novo.setInfo(info);
+			novo.setProx(cabeca);
+			cabeca = novo;
+		}
+		System.out.println("Elemento "+info+" inserido com sucesso! ");
+	}
 	
 	public void removeInicio(){
 		if(cabeca!=null){
@@ -37,29 +54,24 @@ public class Fila{
 		}
 	}
 	
-	public void insereInicio(int info){
-            
-            
-             if(cabeca == null) {
-               cabeca    = new tipoNo();
-               cabeca.setInfo(info);
-               cabeca.setProx(null);
-            }
-            
-            else {
-               tipoNo novo;
-               novo = new tipoNo();
-               novo.setInfo(info);
-               novo.setProx(cabeca);
-               cabeca = novo;
-	}
-        }     
-             
 	public void removeFinal(){
-                          
-                   
+		if(cabeca!=null){
+			if(cabeca.getProx()==null){
+				int valor=cabeca.getInfo();
+				System.out.println("Elemento "+valor+" removido com sucesso! ");
+				cabeca = null;
+			}
+			else{
+				tipoNo aux;
+				aux = cabeca;
+				while((aux.getProx()).getProx()!=null)
+					aux=aux.getProx();
+				int valor=(aux.getProx()).getInfo();
+				System.out.println("Elemento "+valor+" removido com sucesso! ");
+				aux.setProx(null);
+			}
+		}
 	}
-        
 	
 	public void imprime(){
 		tipoNo aux=cabeca;
@@ -115,7 +127,7 @@ public class Fila{
 
 	public static void main(String args[]){
 		System.out.println("\n************ Lista Encadeada Din�mica ************\n");
-		Fila F = new Fila();
+		fila F = new fila();
 		F.menu();
 		System.out.println("\n************ Fim programa ************\n");
 	}

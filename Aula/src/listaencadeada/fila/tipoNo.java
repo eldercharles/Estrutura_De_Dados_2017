@@ -1,3 +1,5 @@
+package listaencadeada.fila;
+
 public class tipoNo{
 	public int info;
 	public tipoNo prox;

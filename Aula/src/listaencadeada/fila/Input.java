@@ -1,3 +1,5 @@
+package listaencadeada.fila;
+
 import java.io.*;
 
 public class Input {
