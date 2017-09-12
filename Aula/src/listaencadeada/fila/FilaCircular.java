@@ -7,7 +7,7 @@ public class FilaCircular{
 		System.out.println("Criando fila...(construtor fila)");
 	}
 		
-	public void insereFinal(int info){
+	public void insereFinalCirco(int info){
 		if(cabeca == null){
 		   cabeca = new tipoNo();
 		   cabeca.setInfo(info);
@@ -30,11 +30,11 @@ public class FilaCircular{
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
 	
-	public void insereInicio(int info){
-		if(cabeca == null){
+	public void insereInicioCirco(int info){
+		if(cabeca == cabeca){
 			cabeca      = new tipoNo();
 			cabeca.setInfo(info);
-			cabeca.setProx(null);
+			cabeca.setProx(cabeca);
 		}
 		else{
 			tipoNo novo;
@@ -86,14 +86,19 @@ public class FilaCircular{
 	}
 	
 	public void imprimeCirco(){
+            System.out.println("Impressao: ");
+            if (cabeca!=null) {
 		tipoNo aux=cabeca;
-		System.out.println("Impressao: ");
-		while(aux!=null){
+		System.out.println(aux.getInfo() +"");
+                aux=aux.getProx();
+                
+		while(aux!=cabeca){
 			System.out.print(aux.getInfo()+" ");
 			aux=aux.getProx();
 		}
 		System.out.println("");
 	}
+        }
 	
 	public void menu(){
 		int valor,opcao=0;
@@ -104,12 +109,12 @@ public class FilaCircular{
 			
 				case 1: //insereInicio
 					valor = Input.readInt("Valor: ");
-					insereInicio(valor);
+					insereInicioCirco(valor);
 				break;
 				
 				case 2: //insereFinal
 					valor = Input.readInt("Valor: ");
-					insereFinal(valor);
+					insereFinalCirco(valor);
 				break;
 				
 				case 3: //removeInicio
