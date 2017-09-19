@@ -1,3 +1,5 @@
+package listaencadeada.pilha;
+
 public class tipoNo{
 	public int info;
 	public tipoNo prox;

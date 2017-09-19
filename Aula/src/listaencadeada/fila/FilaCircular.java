@@ -29,23 +29,39 @@ public class FilaCircular{
 		
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
+        
+        
+        
+        
 	
 	public void insereInicioCirco(int info){
-		if(cabeca == cabeca){
-			cabeca      = new tipoNo();
+		if(cabeca == null){
+			cabeca = new tipoNo();
 			cabeca.setInfo(info);
 			cabeca.setProx(cabeca);
 		}
 		else{
-			tipoNo novo;
+			tipoNo aux, novo;
+                        
 			novo = new tipoNo();
 			novo.setInfo(info);
 			novo.setProx(cabeca);
-			cabeca = novo;
+                        
+			aux = cabeca;
+                        while (aux.getProx() !=cabeca)
+                            aux=aux.getProx();
+                        
+                       aux.setProx (novo);
+                       cabeca= novo;
 		}
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
 	
+        
+        
+        
+        
+        
 	public void removeInicioCirco(){
 		if(cabeca!=null){
                     
@@ -60,7 +76,9 @@ public class FilaCircular{
                             aux = aux.getProx();
                         
                         aux.setProx(cabeca.getProx());
+                        int valor = cabeca.getInfo();
                         cabeca = cabeca.getProx();
+                        System.out.println("Removido: "+valor);
                     }
 		
                 }
