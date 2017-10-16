@@ -28,18 +28,19 @@ public class LetraC {
             aux.setProx(novo);
         }
     }
-  public void InverteLista() {
+  public void InverterLista() {
       
         tipoNo aux = cabeca;
-        tipoNo aux2 = null;
+        tipoNo auxdois = null;
         tipoNo proxAux = null;
         while (aux != null) {
             proxAux = aux.getProx();
-            aux.setProx(aux2);
-            aux2 = aux;
+            aux.setProx(auxdois);
+            auxdois = aux;
             aux = proxAux;
         }
-        cabeca = aux2;
+        
+        cabeca = auxdois;
   }
     public void imprime() {
         
@@ -60,19 +61,21 @@ public class LetraC {
         
         System.out.print(" Qde elementos a serem inseridos: ");
         quantidade = sc.nextInt();
+        
         System.out.print("Insira o primeiro elemento: ");
         while (quantidade > 0) {
+            
         principal.InsereInicio(sc.next());
         System.out.print(elemento + "º Elemento inserido com sucesso! ");
         quantidade--;
         if (quantidade == 0) continue;
-        System.out.print("Insira mais um! ");
+        System.out.print("Insira mais 1! ");
         elemento++;
         }
         
       
-        principal.InverteLista();
-        System.out.print("\n\n Lista invertida é: ");
+        principal.InverterLista();
+        System.out.print(" Invertida é: ");
            
 
     }

@@ -8,7 +8,7 @@ public class filadup{
 		
 	public void insereFinal(int info){
 		if(cabeca == null){
-			cabeca      = new tipoNoDup();
+			cabeca = new tipoNoDup();
 			cabeca.setInfo(info);
 			cabeca.setProx(null);
 			cabeca.setAnt(null);
@@ -20,7 +20,7 @@ public class filadup{
 			while(aux.getProx()!=null)
 				aux=aux.getProx();
 			
-			novo      = new tipoNoDup();
+			novo = new tipoNoDup();
 			novo.setInfo(info);
 			novo.setProx(null);
 			novo.setAnt(aux);
@@ -31,7 +31,7 @@ public class filadup{
 	
 	public void insereInicio(int info){
 		if(cabeca == null){
-			cabeca      = new tipoNoDup();
+			cabeca = new tipoNoDup();
 			cabeca.setInfo(info);
 			cabeca.setProx(null);
 			cabeca.setAnt(null);
