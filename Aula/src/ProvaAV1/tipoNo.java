@@ -21,5 +21,10 @@ public class tipoNo{
 		return prox;
 	}
 
+        public void setInfo(String info) {
+            
+      
+    }
+
 	
 }
