@@ -9,11 +9,14 @@ public class LetraC {
   public tipoNo cabeca;
   
   public void InsereInicio(String info) {
+      
         if (cabeca == null) {
             cabeca = new tipoNo();
             cabeca.setInfo(info);
             cabeca.setProx(null);
+            
         } else {
+            
             tipoNo aux, novo;
             novo = new tipoNo();
             novo.setInfo(info);
@@ -26,6 +29,7 @@ public class LetraC {
         }
     }
   public void InverteLista() {
+      
         tipoNo aux = cabeca;
         tipoNo aux2 = null;
         tipoNo proxAux = null;
@@ -38,6 +42,7 @@ public class LetraC {
         cabeca = aux2;
   }
     public void imprime() {
+        
         tipoNo aux = cabeca;
         System.out.print("Impressão: ");
         while (aux != null) {
@@ -52,16 +57,17 @@ public class LetraC {
 
         int elemento = 0;
         int quantidade = 0;
-        System.out.print(" Quantidade de elementos a serem inseridos: ");
+        
+        System.out.print(" Qde elementos a serem inseridos: ");
         quantidade = sc.nextInt();
         System.out.print("Insira o primeiro elemento: ");
         while (quantidade > 0) {
-            principal.InsereInicio(sc.next());
-            System.out.print(elemento + "º Elemento inserido com sucesso! ");
-            quantidade--;
-            if (quantidade == 0) continue;
-            System.out.print("Insira mais um! ");
-            elemento++;
+        principal.InsereInicio(sc.next());
+        System.out.print(elemento + "º Elemento inserido com sucesso! ");
+        quantidade--;
+        if (quantidade == 0) continue;
+        System.out.print("Insira mais um! ");
+        elemento++;
         }
         
       

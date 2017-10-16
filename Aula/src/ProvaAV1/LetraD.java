@@ -30,10 +30,7 @@ public void insereFinalCirco(int info){
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
         
-        
-        
-        
-	
+        	
 	public void insereInicioCirco(int info){
 		if(cabeca == null){
 			cabeca = new tipoNo();
@@ -57,9 +54,15 @@ public void insereFinalCirco(int info){
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
 	
-        
-        
-        
+        public int BuscaElemento (int info) {
+            int i = 0;
+            while (i < info) {
+                if (i == 1 )
+                    return i;
+                else i++;
+            }
+            return -1;
+        }
         
         
 	public void removeInicioCirco(){
@@ -84,7 +87,7 @@ public void insereFinalCirco(int info){
                 }
         }
 	
-	public void removeFinalCirco(){
+	public void removeEnesimoCirco(){
 		if(cabeca!=null){
 			if(cabeca.getProx()==null){
 				int valor=cabeca.getInfo();
@@ -140,7 +143,7 @@ public void insereFinalCirco(int info){
 				break;
 				
 				case 4: //removeFinal
-					removeFinalCirco();
+					removeEnesimoCirco();
 				break;
 				
 				case 5: //imprime
