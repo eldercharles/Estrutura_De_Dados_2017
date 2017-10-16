@@ -1,30 +1,27 @@
-package listaencadeada.fila;
+package ProvaAV1;
 
 
-
-public class fila{
-	
-	public tipoNo cabeca;
-	fila(){
+public class LetraD {
+    
+public tipoNo cabeca;
+	LetraD(){
 		System.out.println("Criando fila...(construtor fila)");
 	}
-		
-	public void insereFinal(int info){
-           
+public void insereFinalCirco(int info){
 		if(cabeca == null){
-			cabeca = new tipoNo();
-			cabeca.setInfo(info);
-			cabeca.setProx(null);
+		   cabeca = new tipoNo();
+		   cabeca.setInfo(info);
+		   cabeca.setProx(cabeca);
 		}
 		else{
 			tipoNo aux,novo;
 			
 			novo = new tipoNo();
 			novo.setInfo(info);
-			novo.setProx(null);
+			novo.setProx(cabeca);
 						
 			aux = cabeca;
-			while(aux.getProx()!=null)
+			while(aux.getProx()!=cabeca)
 				aux=aux.getProx();
 			
 			aux.setProx(novo);
@@ -32,32 +29,62 @@ public class fila{
 		
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
+        
+        
+        
+        
 	
-	public void insereInicio(int info){
+	public void insereInicioCirco(int info){
 		if(cabeca == null){
-			cabeca      = new tipoNo();
+			cabeca = new tipoNo();
 			cabeca.setInfo(info);
-			cabeca.setProx(null);
+			cabeca.setProx(cabeca);
 		}
 		else{
-			tipoNo novo;
+			tipoNo aux, novo;
+                        
 			novo = new tipoNo();
 			novo.setInfo(info);
 			novo.setProx(cabeca);
-			cabeca = novo;
+                        
+			aux = cabeca;
+                        while (aux.getProx() !=cabeca)
+                            aux=aux.getProx();
+                        
+                       aux.setProx (novo);
+                       cabeca= novo;
 		}
 		System.out.println("Elemento "+info+" inserido com sucesso! ");
 	}
 	
-	public void removeInicio(){
+        
+        
+        
+        
+        
+	public void removeInicioCirco(){
 		if(cabeca!=null){
-			int valor=cabeca.getInfo();
-			System.out.println("Elemento "+valor+" removido com sucesso! ");
-			cabeca=cabeca.getProx();
-		}
-	}
+                    
+                    if (cabeca.getProx() == cabeca) {
+                        cabeca=null;
+                    }else {
+                        
+                        tipoNo aux;
+                        aux = cabeca;
+                        
+                        while(aux.getProx()!=cabeca)
+                            aux = aux.getProx();
+                        
+                        aux.setProx(cabeca.getProx());
+                        int valor = cabeca.getInfo();
+                        cabeca = cabeca.getProx();
+                        System.out.println("Removido: "+valor);
+                    }
+		
+                }
+        }
 	
-	public void removeFinal(){
+	public void removeFinalCirco(){
 		if(cabeca!=null){
 			if(cabeca.getProx()==null){
 				int valor=cabeca.getInfo();
@@ -76,15 +103,20 @@ public class fila{
 		}
 	}
 	
-	public void imprime(){
+	public void imprimeCirco(){
+            System.out.println("Impressao: ");
+            if (cabeca!=null) {
 		tipoNo aux=cabeca;
-		System.out.println("Impressao: ");
-		while(aux!=null){
+		System.out.println(aux.getInfo() +"");
+                aux=aux.getProx();
+                
+		while(aux!=cabeca){
 			System.out.print(aux.getInfo()+" ");
 			aux=aux.getProx();
 		}
 		System.out.println("");
 	}
+        }
 	
 	public void menu(){
 		int valor,opcao=0;
@@ -95,24 +127,24 @@ public class fila{
 			
 				case 1: //insereInicio
 					valor = Input.readInt("Valor: ");
-					insereInicio(valor);
+					insereInicioCirco(valor);
 				break;
 				
 				case 2: //insereFinal
 					valor = Input.readInt("Valor: ");
-					insereFinal(valor);
+					insereFinalCirco(valor);
 				break;
 				
 				case 3: //removeInicio
-					removeInicio();
+					removeInicioCirco();
 				break;
 				
 				case 4: //removeFinal
-					removeFinal();
+					removeFinalCirco();
 				break;
 				
 				case 5: //imprime
-					imprime();
+					imprimeCirco();
 				break;
 				
 				case -1: //sair
@@ -130,7 +162,7 @@ public class fila{
 
 	public static void main(String args[]){
 		System.out.println("\n************ Lista Encadeada Din�mica ************\n");
-		fila F = new fila();
+		LetraD F = new LetraD();
 		F.menu();
 		System.out.println("\n************ Fim programa ************\n");
 	}
