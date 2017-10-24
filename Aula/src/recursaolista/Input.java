@@ -1,6 +1,5 @@
-package listaduplamenteencadeada;
+package recursaolista;
 
-import fatorial.*;
 import java.io.*;
 
 public class Input {

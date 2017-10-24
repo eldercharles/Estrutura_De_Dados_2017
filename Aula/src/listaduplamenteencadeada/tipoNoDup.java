@@ -1,3 +1,5 @@
+package listaduplamenteencadeada;
+
 public class tipoNoDup{
 		public int info;
 		public tipoNoDup prox;
